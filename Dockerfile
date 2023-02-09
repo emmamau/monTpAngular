@@ -34,7 +34,10 @@ COPY ./deploy/ /var/www/html
 
 WORKDIR /var/www/html
 
-RUN mkdir ./src
+RUN mkdir ./src 
+
+RUN composer install --prefer-dist
+RUN composer dump-autoload --optimize
 
 RUN composer update
 
